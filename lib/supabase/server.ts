@@ -22,7 +22,7 @@ export async function getSupabaseServerClient(): Promise<SupabaseClient | null> 
           );
         } catch {
           // Called from a Server Component — safe to ignore; the
-          // middleware refreshes sessions instead.
+          // proxy (proxy.ts) refreshes sessions instead.
         }
       },
     },

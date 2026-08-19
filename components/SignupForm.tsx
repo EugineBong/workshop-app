@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { brand } from "@/lib/config/brand";
 import { getSupabaseBrowserClient, isSupabaseConfigured } from "@/lib/supabase/client";
@@ -106,9 +107,9 @@ export default function SignupForm() {
       </form>
       <p className="mt-4 text-sm text-gray-600">
         Already have an account?{" "}
-        <a href="/login" className="underline" style={{ color: brand.primaryColor }}>
+        <Link href="/login" className="underline" style={{ color: brand.primaryColor }}>
           Sign in
-        </a>
+        </Link>
       </p>
     </div>
   );

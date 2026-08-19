@@ -39,6 +39,7 @@ export default function ItemsClient({
       setError("Couldn't load your items. Refresh the page to try again.");
     } else {
       setItems(data ?? []);
+      setError(null);
     }
     setLoading(false);
   }, [supabase]);

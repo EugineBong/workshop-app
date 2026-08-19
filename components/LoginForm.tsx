@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { brand } from "@/lib/config/brand";
 import { getSupabaseBrowserClient, isSupabaseConfigured } from "@/lib/supabase/client";
@@ -80,9 +81,9 @@ export default function LoginForm({ confirmError = false }: { confirmError?: boo
       </form>
       <p className="mt-4 text-sm text-gray-600">
         No account yet?{" "}
-        <a href="/signup" className="underline" style={{ color: brand.primaryColor }}>
+        <Link href="/signup" className="underline" style={{ color: brand.primaryColor }}>
           Sign up
-        </a>
+        </Link>
       </p>
     </div>
   );
