@@ -72,7 +72,12 @@ export default function ItemsClient({
 
   async function handleDelete(id: string) {
     if (!supabase) return;
-    await supabase.from("items").delete().eq("id", id);
+    const { error } = await supabase.from("items").delete().eq("id", id);
+    if (error) {
+      setError("Couldn't delete that item. Please try again.");
+      return;
+    }
+    setError(null);
     await loadItems();
   }
 
