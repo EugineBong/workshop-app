@@ -14,6 +14,7 @@ path (and line where useful) as evidence.
 1. **Secrets** — Search the tracked files for secret-shaped strings: `sb_secret_`,
    `service_role`, `SUPABASE_SERVICE`, private keys, DB passwords.
    The publishable key and project URL in the browser bundle are PUBLIC BY DESIGN — not findings.
+   Files that merely NAME these patterns as text to search for (this skill file itself) are not findings.
    `.env.local` must be git-ignored and untracked (`git status`, `.gitignore`).
 2. **RLS** — `supabase/workshop-schema.sql` must enable row level security on
    `public.items` and define owner-scoped policies for select, insert, update AND
