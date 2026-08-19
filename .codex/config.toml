@@ -1,0 +1,12 @@
+# Project-local Codex config — commit as ./.codex/config.toml at the repo root.
+# Codex reads this automatically once the participant marks the project as trusted.
+# Mirrors .mcp.json so Claude Code and Codex see the same three servers.
+
+[mcp_servers.github]
+url = "https://api.githubcopilot.com/mcp/"
+
+[mcp_servers.supabase]
+url = "https://mcp.supabase.com/mcp?read_only=true"
+
+[mcp_servers.vercel]
+url = "https://mcp.vercel.com"
