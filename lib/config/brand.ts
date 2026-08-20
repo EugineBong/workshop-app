@@ -16,8 +16,8 @@ export const brand = {
   /** Secondary accent — used for underlines, stamps, dividers. */
   accentColor: "#14b8a6",
 
-  /** Warm ivory canvas so the orange/teal feel calm, not neon. */
-  backgroundColor: "#faf6ef",
+  /** Cool off-white canvas so the orange/teal pop without warming the whole page. */
+  backgroundColor: "#f5f7fa",
 
   /** Logo image in /public — swap the file or point to a new one. */
   logo: "/logo.svg",

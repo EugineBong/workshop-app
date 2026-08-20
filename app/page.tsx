@@ -26,13 +26,13 @@ type SectionId = (typeof SECTION_ORDER)[number];
 
 const sections: Record<SectionId, React.ReactNode> = {
   hero: (
-    <section key="hero" className="px-4 pt-20 pb-12 text-center">
+    <section key="hero" className="px-4 pt-12 pb-10 text-center sm:pt-20 sm:pb-12">
       {brand.showWorkshopBadge && (
         <span className="mb-5 inline-block rounded-full border border-gray-300 bg-white/70 px-3 py-1 text-xs tracking-wide text-gray-600 uppercase">
           Built at the TimeTec AI Workshop
         </span>
       )}
-      <h1 className="mx-auto max-w-3xl font-[family-name:var(--font-playfair)] text-5xl leading-tight font-bold tracking-tight text-gray-900 sm:text-6xl">
+      <h1 className="mx-auto max-w-3xl font-[family-name:var(--font-playfair)] text-4xl leading-tight font-bold tracking-tight text-balance text-gray-900 sm:text-5xl md:text-6xl">
         {headline}
       </h1>
       <div
@@ -90,7 +90,7 @@ const sections: Record<SectionId, React.ReactNode> = {
       <p className="mx-auto mt-3 max-w-md text-gray-600">
         Free, private, and takes about ten seconds to set up.
       </p>
-      <div className="mt-7 flex justify-center gap-4">
+      <div className="mt-7 flex flex-wrap justify-center gap-3">
         <Link
           href="/signup"
           className="rounded-full px-6 py-3 font-semibold text-white shadow-sm transition hover:brightness-110"

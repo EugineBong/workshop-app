@@ -89,7 +89,7 @@ export default function ItemForm({
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="e.g. See the Northern Lights"
-          className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-2 focus:outline-offset-1"
+          className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-base focus:outline-2 focus:outline-offset-1 sm:text-sm"
         />
       </div>
 
@@ -102,7 +102,7 @@ export default function ItemForm({
             id="new-category"
             value={category}
             onChange={(e) => setCategory(e.target.value as Category | "")}
-            className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-2 focus:outline-offset-1"
+            className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-base focus:outline-2 focus:outline-offset-1 sm:text-sm"
           >
             <option value="">— None —</option>
             {CATEGORIES.map((c) => (
@@ -120,7 +120,7 @@ export default function ItemForm({
             id="new-status"
             value={status}
             onChange={(e) => setStatus(e.target.value as Status)}
-            className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-2 focus:outline-offset-1"
+            className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-base focus:outline-2 focus:outline-offset-1 sm:text-sm"
           >
             {STATUSES.map((s) => (
               <option key={s.id} value={s.id}>
@@ -141,7 +141,7 @@ export default function ItemForm({
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             placeholder="e.g. Kyoto, Japan"
-            className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-2 focus:outline-offset-1"
+            className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-base focus:outline-2 focus:outline-offset-1 sm:text-sm"
           />
         </div>
         <div>
@@ -153,7 +153,7 @@ export default function ItemForm({
             type="date"
             value={targetDate}
             onChange={(e) => setTargetDate(e.target.value)}
-            className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-2 focus:outline-offset-1"
+            className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-base focus:outline-2 focus:outline-offset-1 sm:text-sm"
           />
         </div>
       </div>
@@ -168,7 +168,7 @@ export default function ItemForm({
           onChange={(e) => setBody(e.target.value)}
           rows={2}
           placeholder="What draws you to it?"
-          className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-2 focus:outline-offset-1"
+          className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-base focus:outline-2 focus:outline-offset-1 sm:text-sm"
         />
       </div>
 

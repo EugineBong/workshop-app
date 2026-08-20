@@ -215,8 +215,12 @@ export default function ItemCard({
 
   return (
     <div
-      className="relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition"
-      style={isDone ? { backgroundColor: "#faf6ef" } : undefined}
+      className="relative overflow-hidden rounded-xl border shadow-sm transition"
+      style={
+        isDone
+          ? { backgroundColor: "#e6efe9", borderColor: "#c7ddd0" }
+          : { backgroundColor: "#ffffff", borderColor: "#e5e7eb" }
+      }
     >
       {/* Category color strip */}
       <div
@@ -225,18 +229,18 @@ export default function ItemCard({
         style={{ backgroundColor: stripColor }}
       />
 
-      {/* CHASED stamp overlay */}
+      {/* DONE stamp overlay */}
       {isDone && (
         <div
           aria-hidden
-          className="pointer-events-none absolute top-2 right-3 -rotate-12 rounded-md border-2 px-2 py-0.5 font-[family-name:var(--font-playfair)] text-xs font-black tracking-widest opacity-70"
-          style={{ color: brand.primaryColor, borderColor: brand.primaryColor }}
+          className="pointer-events-none absolute top-2 right-2 -rotate-12 rounded-md border-2 px-2 py-0.5 font-[family-name:var(--font-playfair)] text-lg font-black tracking-widest opacity-75 sm:top-3 sm:right-4 sm:border-[3px] sm:px-3.5 sm:py-1 sm:text-2xl"
+          style={{ color: "#047857", borderColor: "#047857" }}
         >
-          CHASED ✓
+          DONE
         </div>
       )}
 
-      <div className={`p-3.5 pl-4 ${isDone ? "opacity-80" : ""}`}>
+      <div className={`p-3.5 pl-4 ${isDone ? "pr-20 opacity-80 sm:pr-32" : ""}`}>
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-2">

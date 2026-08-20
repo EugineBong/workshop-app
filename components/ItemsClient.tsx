@@ -192,7 +192,7 @@ export default function ItemsClient({
       style={{ backgroundColor: brand.backgroundColor }}
     >
       <header className="shrink-0 border-b border-gray-200 bg-white/80 backdrop-blur">
-        <div className="mx-auto flex w-full items-center justify-between px-6 py-2.5">
+        <div className="mx-auto flex w-full items-center justify-between px-4 py-2.5 sm:px-6">
           <Link
             href="/"
             className="flex items-center gap-2 font-[family-name:var(--font-playfair)] text-xl font-bold tracking-tight"
@@ -216,14 +216,14 @@ export default function ItemsClient({
       <main className="flex flex-1 flex-col md:min-h-0 md:flex-row md:overflow-hidden">
         {/* LEFT — Add form */}
         <aside className="shrink-0 border-b border-gray-200 bg-white md:w-[400px] md:border-r md:border-b-0 md:overflow-y-auto">
-          <div className="p-6">
-            <h2 className="font-[family-name:var(--font-playfair)] text-2xl font-bold tracking-tight">
+          <div className="p-4 sm:p-6">
+            <h2 className="font-[family-name:var(--font-playfair)] text-xl font-bold tracking-tight sm:text-2xl">
               Add an adventure
             </h2>
             <p className="mt-1 text-xs text-gray-500">
-              What's the next thing you want to chase?
+              What&apos;s the next thing you want to chase?
             </p>
-            <div className="mt-5">
+            <div className="mt-4 sm:mt-5">
               <ItemForm onSubmit={handleCreate} />
             </div>
           </div>
@@ -232,7 +232,7 @@ export default function ItemsClient({
         {/* RIGHT — Progress + filters + list */}
         <section className="flex flex-1 flex-col md:min-h-0 md:overflow-hidden">
           {/* Top strip: progress + filter chips */}
-          <div className="shrink-0 border-b border-gray-200 bg-white/60 px-6 py-4 backdrop-blur">
+          <div className="shrink-0 border-b border-gray-200 bg-white/60 px-4 py-3 backdrop-blur sm:px-6 sm:py-4">
             <div className="flex items-center justify-between gap-4">
               <p className="text-sm font-medium text-gray-700">
                 <span
@@ -280,7 +280,7 @@ export default function ItemsClient({
           </div>
 
           {/* Scrollable card list */}
-          <div className="flex-1 space-y-3 overflow-y-auto px-6 py-5 md:min-h-0">
+          <div className="flex-1 space-y-3 overflow-y-auto px-4 py-4 sm:px-6 sm:py-5 md:min-h-0">
             {error && <p className="text-sm text-red-600">{error}</p>}
             {loading ? (
               <p className="text-gray-500">Loading…</p>

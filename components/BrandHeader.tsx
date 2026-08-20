@@ -6,7 +6,7 @@ import { brand } from "@/lib/config/brand";
 export default function BrandHeader() {
   return (
     <header className="border-b border-gray-200 bg-white/80 backdrop-blur">
-      <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
+      <div className="mx-auto flex max-w-4xl items-center justify-between gap-3 px-4 py-3">
         <Link
           href="/"
           className="flex items-center gap-2 font-[family-name:var(--font-playfair)] text-xl font-bold tracking-tight"
@@ -21,10 +21,11 @@ export default function BrandHeader() {
           </Link>
           <Link
             href="/signup"
-            className="rounded-full px-4 py-2 font-semibold text-white shadow-sm hover:brightness-110"
+            className="rounded-full px-3 py-2 text-xs font-semibold whitespace-nowrap text-white shadow-sm hover:brightness-110 sm:px-4 sm:text-sm"
             style={{ backgroundColor: brand.primaryColor }}
           >
-            Start your list
+            <span className="sm:hidden">Start</span>
+            <span className="hidden sm:inline">Start your list</span>
           </Link>
         </nav>
       </div>
