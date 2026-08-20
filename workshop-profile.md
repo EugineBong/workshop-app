@@ -1,5 +1,5 @@
 # Workshop Profile
 
-- **Name:** (your name here)
-- **My app idea:** (one sentence — what will YOUR version of this app track?)
+- **Name:** Eugine Bong
+- **My app idea:** To record my daily tasks
 - **Status:** Ready to build
