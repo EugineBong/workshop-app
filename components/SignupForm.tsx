@@ -9,6 +9,7 @@ import BackendNotConnected from "./BackendNotConnected";
 
 export default function SignupForm() {
   const router = useRouter();
+  const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -19,6 +20,15 @@ export default function SignupForm() {
     e.preventDefault();
     const supabase = getSupabaseBrowserClient();
     if (!supabase) return;
+    const trimmedName = displayName.trim();
+    if (trimmedName.length === 0) {
+      setError("Please enter a display name.");
+      return;
+    }
+    if (trimmedName.length > 60) {
+      setError("Keep the display name under 60 characters.");
+      return;
+    }
     if (password.length < 8) {
       setError("Password must be at least 8 characters.");
       return;
@@ -29,7 +39,10 @@ export default function SignupForm() {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
-      options: { emailRedirectTo: `${siteUrl}/auth/confirm` },
+      options: {
+        emailRedirectTo: `${siteUrl}/auth/confirm`,
+        data: { display_name: trimmedName },
+      },
     });
     setBusy(false);
     if (error) {
@@ -49,7 +62,9 @@ export default function SignupForm() {
   if (checkEmail) {
     return (
       <div className="mx-auto mt-12 w-full max-w-sm px-4">
-        <h1 className="text-2xl font-bold">Check your email</h1>
+        <h1 className="font-[family-name:var(--font-playfair)] text-3xl font-bold">
+          Check your email
+        </h1>
         <p className="mt-3 text-gray-600">
           We sent a confirmation link to <strong>{email}</strong>. Click it to finish
           creating your account, then sign in.
@@ -60,13 +75,32 @@ export default function SignupForm() {
 
   return (
     <div className="mx-auto mt-12 w-full max-w-sm px-4">
-      <h1 className="text-2xl font-bold">Create your account</h1>
+      <h1 className="font-[family-name:var(--font-playfair)] text-3xl font-bold">
+        Start your list.
+      </h1>
+      <p className="mt-1 text-sm text-gray-600">Free, private, yours alone.</p>
       {!isSupabaseConfigured() && (
         <div className="mt-4">
           <BackendNotConnected />
         </div>
       )}
       <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+        <div>
+          <label htmlFor="display-name" className="block text-sm font-medium">
+            Display name
+          </label>
+          <input
+            id="display-name"
+            type="text"
+            required
+            maxLength={60}
+            autoComplete="nickname"
+            value={displayName}
+            onChange={(e) => setDisplayName(e.target.value)}
+            placeholder="What should we call you?"
+            className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 focus:outline-2 focus:outline-offset-1"
+          />
+        </div>
         <div>
           <label htmlFor="email" className="block text-sm font-medium">
             Email
@@ -78,7 +112,7 @@ export default function SignupForm() {
             autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-2 focus:outline-offset-1"
+            className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 focus:outline-2 focus:outline-offset-1"
           />
         </div>
         <div>
@@ -92,17 +126,17 @@ export default function SignupForm() {
             autoComplete="new-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-2 focus:outline-offset-1"
+            className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 focus:outline-2 focus:outline-offset-1"
           />
         </div>
         {error && <p className="text-sm text-red-600">{error}</p>}
         <button
           type="submit"
           disabled={busy}
-          className="w-full rounded-md px-4 py-2 font-medium text-white disabled:opacity-60"
+          className="w-full rounded-full px-4 py-2.5 font-semibold text-white shadow-sm transition hover:brightness-110 disabled:opacity-60"
           style={{ backgroundColor: brand.primaryColor }}
         >
-          {busy ? "Creating account…" : "Sign up"}
+          {busy ? "Creating account…" : "Create my list"}
         </button>
       </form>
       <p className="mt-4 text-sm text-gray-600">

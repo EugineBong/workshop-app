@@ -34,7 +34,10 @@ export default function LoginForm({ confirmError = false }: { confirmError?: boo
 
   return (
     <div className="mx-auto mt-12 w-full max-w-sm px-4">
-      <h1 className="text-2xl font-bold">Sign in</h1>
+      <h1 className="font-[family-name:var(--font-playfair)] text-3xl font-bold">
+        Welcome back, wanderer.
+      </h1>
+      <p className="mt-1 text-sm text-gray-600">Sign in to see what you&apos;re chasing.</p>
       {!isSupabaseConfigured() && (
         <div className="mt-4">
           <BackendNotConnected />
@@ -52,7 +55,7 @@ export default function LoginForm({ confirmError = false }: { confirmError?: boo
             autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-2 focus:outline-offset-1"
+            className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 focus:outline-2 focus:outline-offset-1"
           />
         </div>
         <div>
@@ -66,14 +69,14 @@ export default function LoginForm({ confirmError = false }: { confirmError?: boo
             autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-2 focus:outline-offset-1"
+            className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 focus:outline-2 focus:outline-offset-1"
           />
         </div>
         {error && <p className="text-sm text-red-600">{error}</p>}
         <button
           type="submit"
           disabled={busy}
-          className="w-full rounded-md px-4 py-2 font-medium text-white disabled:opacity-60"
+          className="w-full rounded-full px-4 py-2.5 font-semibold text-white shadow-sm transition hover:brightness-110 disabled:opacity-60"
           style={{ backgroundColor: brand.primaryColor }}
         >
           {busy ? "Signing in…" : "Sign in"}
@@ -82,7 +85,7 @@ export default function LoginForm({ confirmError = false }: { confirmError?: boo
       <p className="mt-4 text-sm text-gray-600">
         No account yet?{" "}
         <Link href="/signup" className="underline" style={{ color: brand.primaryColor }}>
-          Sign up
+          Start your list
         </Link>
       </p>
     </div>

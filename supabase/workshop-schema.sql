@@ -1,5 +1,5 @@
 -- ════════════════════════════════════════════════════════════════
--- MyStuff workshop schema (Module 5)
+-- Wanderlist schema (revamp)
 -- Run this ONCE in your Supabase project's SQL editor.
 -- Safe to re-run by accident: every statement is guarded.
 -- Contains NO destructive statements (no drop / truncate / delete).
@@ -74,3 +74,23 @@ $$;
 create or replace trigger items_set_updated_at
   before update on public.items
   for each row execute function public.set_updated_at();
+
+-- 5) Revamp columns for the Wanderlist / bucket-list UI.
+--    All additive: existing rows survive with sensible defaults.
+alter table public.items add column if not exists category     text;
+alter table public.items add column if not exists status       text not null default 'dreaming';
+alter table public.items add column if not exists location     text;
+alter table public.items add column if not exists target_date  date;
+alter table public.items add column if not exists completed_at timestamptz;
+
+alter table public.items drop constraint if exists items_status_check;
+alter table public.items add constraint items_status_check
+  check (status in ('dreaming', 'planning', 'doing', 'done'));
+
+alter table public.items drop constraint if exists items_category_check;
+alter table public.items add constraint items_category_check
+  check (category is null or category in ('travel','skill','experience','creative','career','personal'));
+
+alter table public.items drop constraint if exists items_location_len_check;
+alter table public.items add constraint items_location_len_check
+  check (location is null or char_length(location) <= 100);

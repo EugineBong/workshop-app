@@ -5,13 +5,19 @@
 // ─────────────────────────────────────────────────────────────
 export const brand = {
   /** The app's name — shown in the header, homepage and browser tab. */
-  name: "Doodlebox",
+  name: "Wanderlist",
 
   /** One-line tagline shown under the name on the homepage. */
-  tagline: "The friendly little home for your notes, ideas, and reminders.",
+  tagline: "Life's too short for someday. Chase the list.",
 
   /** Main accent color (any CSS color, e.g. "#4f46e5" or "rebeccapurple"). */
-  primaryColor: "#14b8a6",
+  primaryColor: "#f97316",
+
+  /** Secondary accent — used for underlines, stamps, dividers. */
+  accentColor: "#14b8a6",
+
+  /** Warm ivory canvas so the orange/teal feel calm, not neon. */
+  backgroundColor: "#faf6ef",
 
   /** Logo image in /public — swap the file or point to a new one. */
   logo: "/logo.svg",

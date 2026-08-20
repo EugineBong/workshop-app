@@ -3,7 +3,11 @@
     "allow": [
       "Skill(customize-app)",
       "Skill(customize-app:*)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(Select-String -Pattern \"\\\\.env\")",
+      "PowerShell(npm run build)",
+      "mcp__supabase__list_projects",
+      "mcp__supabase__list_tables"
     ]
   }
 }

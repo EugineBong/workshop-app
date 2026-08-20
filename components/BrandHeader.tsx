@@ -5,11 +5,11 @@ import { brand } from "@/lib/config/brand";
 /** Top navigation shown on the public pages (/, /login, /signup). */
 export default function BrandHeader() {
   return (
-    <header className="border-b border-gray-200 bg-white">
+    <header className="border-b border-gray-200 bg-white/80 backdrop-blur">
       <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
         <Link
           href="/"
-          className="flex items-center gap-2 text-lg font-semibold"
+          className="flex items-center gap-2 font-[family-name:var(--font-playfair)] text-xl font-bold tracking-tight"
           style={{ color: brand.primaryColor }}
         >
           <Image src={brand.logo} alt={`${brand.name} logo`} width={28} height={28} />
@@ -21,10 +21,10 @@ export default function BrandHeader() {
           </Link>
           <Link
             href="/signup"
-            className="rounded-md px-3 py-1.5 font-medium text-white"
+            className="rounded-full px-4 py-2 font-semibold text-white shadow-sm hover:brightness-110"
             style={{ backgroundColor: brand.primaryColor }}
           >
-            Sign up
+            Start your list
           </Link>
         </nav>
       </div>
