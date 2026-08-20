@@ -18,7 +18,7 @@ const howItWorks = [
 ];
 
 // Reorder these to change the page layout (Module 4 layout edit).
-const SECTION_ORDER = ["hero", "how-it-works", "cta"] as const;
+const SECTION_ORDER = ["hero", "divider-wave", "cta", "how-it-works"] as const;
 
 // ─────────────────────────────────────────────────────────────
 
@@ -26,7 +26,7 @@ type SectionId = (typeof SECTION_ORDER)[number];
 
 const sections: Record<SectionId, React.ReactNode> = {
   hero: (
-    <section key="hero" className="px-4 py-16 text-center">
+    <section key="hero" className="px-4 pt-16 pb-10 text-center">
       {brand.showWorkshopBadge && (
         <span className="mb-4 inline-block rounded-full border border-gray-300 px-3 py-1 text-xs text-gray-600">
           Built at the TimeTec AI Workshop
@@ -40,6 +40,20 @@ const sections: Record<SectionId, React.ReactNode> = {
         {brand.tagline}
       </p>
     </section>
+  ),
+  "divider-wave": (
+    <div key="divider-wave" className="flex justify-center px-4">
+      <svg viewBox="0 0 200 36" className="h-24 w-full" fill="none" preserveAspectRatio="none">
+        <path
+          d="M0 18 Q25 -4 50 18 T100 18 T150 18 T200 18"
+          stroke="#f97316"
+          strokeWidth="8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
+    </div>
   ),
   "how-it-works": (
     <section key="how-it-works" className="px-4 py-12">
@@ -55,7 +69,7 @@ const sections: Record<SectionId, React.ReactNode> = {
     </section>
   ),
   cta: (
-    <section key="cta" className="px-4 py-16 text-center">
+    <section key="cta" className="px-4 pt-10 pb-16 text-center">
       <h2 className="text-2xl font-semibold">Ready to start?</h2>
       <div className="mt-6 flex justify-center gap-4">
         <Link

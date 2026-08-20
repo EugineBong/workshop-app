@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(customize-app)",
+      "Skill(customize-app:*)",
+      "Bash(npm run *)"
+    ]
+  }
+}
